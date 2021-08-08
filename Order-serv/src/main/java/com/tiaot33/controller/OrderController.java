@@ -23,17 +23,18 @@ public class OrderController {
 
     @GetMapping("/order/create")
     public String createOrder(Integer productId,Integer userId){
-        String url1 = "http://localhost:9000/product/" + productId.toString();
-        String url2 = "http://localhost:10000/user/" + userId.toString();
-        String url3 = "http://localhost:11000/stock/reduce/" + productId.toString();
-        String url4 = "http://localhost:12000/shopcart/remove";
-        HashMap<Object, Object> map = Maps.newHashMap();
-        map.put("productId", productId);
-        map.put("userId", userId);
-        String product = restTemplate.getForObject(url1, String.class);
-        String user = restTemplate.getForObject(url2, String.class);
+        //String url1 = "http://localhost:9000/product/" + productId.toString();
+        //String url2 = "http://localhost:10000/user/" + userId.toString();
+        String url3 = "http://Stock-serv/stock/reduce/" + productId.toString();
+        //String url4 = "http://localhost:12000/shopcart/remove";
+        //HashMap<Object, Object> map = Maps.newHashMap();
+        //map.put("productId", productId);
+        //map.put("userId", userId);
+        //String product = restTemplate.getForObject(url1, String.class);
+        //String user = restTemplate.getForObject(url2, String.class);
         String s = restTemplate.getForObject(url3, String.class);
-        String s1 = restTemplate.getForObject(url4, String.class, map);
-        return "用户：[" + user + "], 购买商品：" + product+"\r\n"+s+"\r\n"+s1;
+        //String s1 = restTemplate.getForObject(url4, String.class, map);
+        //return "用户：[" + user + "], 购买商品：" + product+"\r\n"+s+"\r\n"+s1;
+        return s;
     }
 }

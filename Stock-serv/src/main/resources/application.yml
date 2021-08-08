@@ -1,2 +1,8 @@
 server:
   port: 11000
+spring:
+  application:
+    name: @artifactId@
+  cloud:
+    nacos:
+      server-addr: localhost:8848
